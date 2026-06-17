@@ -1,0 +1,71 @@
+<section class="page-hero">
+  <div class="container" appScrollReveal="up">
+    <span class="section-eyebrow">Matches &amp; Tours</span>
+    <h1>Real Match Exposure, Every Season</h1>
+    <p class="section-sub section-sub--center" style="color: rgba(255,255,255,0.8);">
+      League fixtures, friendly matches and seasonal tours that turn net
+      practice into match-winning performances.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FIXTURES ============ -->
+<section class="page-section fixtures">
+  <div class="container" appScrollReveal="up">
+    <span class="section-eyebrow">Fixtures &amp; Results</span>
+    <h2 class="section-heading">Upcoming matches and recent results</h2>
+
+    <div class="fixtures__table card">
+      <div class="fixtures__row fixtures__row--head">
+        <span>Date</span>
+        <span>Competition</span>
+        <span>Match</span>
+        <span>Venue</span>
+        <span>Status</span>
+      </div>
+      <div class="fixtures__row" *ngFor="let fixture of fixtures; let i = index" appScrollReveal="left" [revealDelay]="i * 60">
+        <span class="fixtures__date">{{ fixture.date }}</span>
+        <span>{{ fixture.competition }}</span>
+        <span>{{ fixture.opponent }}</span>
+        <span class="fixtures__venue">{{ fixture.venue }}</span>
+        <span
+          class="fixtures__status"
+          [class.fixtures__status--upcoming]="fixture.status === 'Upcoming'"
+          [class.fixtures__status--result]="fixture.status === 'Result'"
+        >
+          {{ fixture.status === 'Result' ? fixture.result : 'Upcoming' }}
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOURS ============ -->
+<section class="page-section page-section--alt tours">
+  <div class="container" appScrollReveal="up">
+    <span class="section-eyebrow">Seasonal Tours</span>
+    <h2 class="section-heading">Travel, compete and grow together</h2>
+    <p class="section-sub">
+      Tours are open to selected batches based on age group and performance.
+      Seats are limited — registration closes two weeks before departure.
+    </p>
+
+    <div class="tours__list">
+      <article class="card tour-card" *ngFor="let tour of tours; let i = index" [appScrollReveal]="i % 2 === 1 ? 'right' : 'left'">
+        <img [src]="tour.image" [alt]="tour.title + ' destination'" loading="lazy" />
+        <div class="tour-card__body">
+          <div class="tour-card__meta">
+            <span class="tour-card__dates">{{ tour.dates }}</span>
+            <span class="tour-card__destination">{{ tour.destination }}</span>
+          </div>
+          <h3>{{ tour.title }}</h3>
+          <p>{{ tour.description }}</p>
+          <ul>
+            <li *ngFor="let highlight of tour.highlights">{{ highlight }}</li>
+          </ul>
+          <a routerLink="/contact" class="btn btn--ghost">Register Interest</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+<section class="page-hero">
+  <div class="container" appScrollReveal="up">
+    <span class="section-eyebrow">Meet The Team</span>
+    <h1>Our Expert Coaches</h1>
+    <p class="section-sub section-sub--center" style="color: rgba(255,255,255,0.8);">
+      A coaching staff of 24 specialists — former state and Ranji-level
+      players, BCCI-certified trainers and sports science experts.
+    </p>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="grid grid--3 coach-grid">
+      <article class="card coach-card" *ngFor="let coach of coaches; let i = index" appScrollReveal="up" [revealDelay]="(i % 3) * 100">
+        <div class="coach-card__image">
+          <img [src]="coach.image" [alt]="coach.name" loading="lazy" />
+          <span class="coach-card__exp">{{ coach.experience }}</span>
+        </div>
+        <div class="coach-card__body">
+          <h3>{{ coach.name }}</h3>
+          <span class="coach-card__role">{{ coach.role }}</span>
+          <p>{{ coach.bio }}</p>
+          <ul class="coach-card__tags">
+            <li *ngFor="let tag of coach.specialties">{{ tag }}</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="page-section page-section--alt coach-cta">
+  <div class="container text-center" appScrollReveal="scale">
+    <span class="section-eyebrow">Want To Train With Us?</span>
+    <h2 class="section-heading">Book a free assessment with our coaching staff</h2>
+    <p class="section-sub section-sub--center">
+      Our coaches will evaluate technique, fitness and temperament to
+      recommend the right program for your level.
+    </p>
+    <a routerLink="/contact" class="btn btn--primary">Book a Free Trial</a>
+  </div>
+</section>

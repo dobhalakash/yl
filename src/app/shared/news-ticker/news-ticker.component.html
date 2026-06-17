@@ -1,0 +1,10 @@
+<div class="ticker" role="region" aria-label="Latest academy news">
+  <span class="ticker__label">Academy News</span>
+  <div class="ticker__viewport">
+    <div class="ticker__track">
+      <span class="ticker__item" *ngFor="let item of newsItems">{{ item }}</span>
+      <!-- duplicate set for seamless looping -->
+      <span class="ticker__item" *ngFor="let item of newsItems" aria-hidden="true">{{ item }}</span>
+    </div>
+  </div>
+</div>

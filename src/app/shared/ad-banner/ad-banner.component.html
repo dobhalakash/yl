@@ -1,0 +1,24 @@
+<aside class="ad-rail" aria-label="Sponsor advertisements">
+  <div class="ad-rail__heading">Sponsors</div>
+  <div class="ad-rail__viewport">
+    <div class="ad-rail__track">
+      <a class="ad-card" href="#" *ngFor="let ad of ads" (click)="$event.preventDefault()">
+        <img [src]="ad.image" [alt]="ad.title" loading="lazy" />
+        <span class="ad-card__tag">{{ ad.tag }}</span>
+        <span class="ad-card__body">
+          <strong>{{ ad.title }}</strong>
+          <small>{{ ad.subtitle }}</small>
+        </span>
+      </a>
+      <!-- duplicate set for seamless vertical loop -->
+      <a class="ad-card" href="#" *ngFor="let ad of ads" aria-hidden="true" (click)="$event.preventDefault()">
+        <img [src]="ad.image" [alt]="ad.title" loading="lazy" />
+        <span class="ad-card__tag">{{ ad.tag }}</span>
+        <span class="ad-card__body">
+          <strong>{{ ad.title }}</strong>
+          <small>{{ ad.subtitle }}</small>
+        </span>
+      </a>
+    </div>
+  </div>
+</aside>

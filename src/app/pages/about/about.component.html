@@ -1,0 +1,89 @@
+<section class="page-hero">
+  <div class="container" appScrollReveal="up">
+    <h1>Built by Cricketers, for Cricketers</h1>
+    <p class="section-sub section-sub--center" style="color: rgba(255,255,255,0.8);">
+      Fifteen years of coaching, mentoring and competing — our story is the
+      story of every player who has walked through our gates.
+    </p>
+  </div>
+</section>
+
+<section class="page-section about-intro">
+  <div class="container about-intro__grid">
+    <img
+      src="https://picsum.photos/seed/yl-about-team/640/480"
+      alt="Coaches and players of YL Cricket Academy on the practice ground"
+      class="about-intro__image"
+      loading="lazy"
+      appScrollReveal="left"
+    />
+    <div appScrollReveal="right">
+      <span class="section-eyebrow">Our Story</span>
+      <h2 class="section-heading">From one matting pitch to a complete cricket ecosystem</h2>
+      <p>
+        YL Cricket Academy began in 2011 with a simple idea: give every child
+        in our community access to proper cricket coaching, regardless of
+        where they were starting from. What started as weekend sessions on a
+        single matting pitch has grown into a full academy with turf grounds,
+        analysis labs and a coaching staff of 24.
+      </p>
+      <p>
+        Today we run programs for players from age 6 to 19, an elite
+        performance pathway for serious competitors, and a packed calendar of
+        local matches, district tournaments and seasonal tours.
+      </p>
+      <a routerLink="/programs" class="btn btn--primary">See Our Programs</a>
+    </div>
+  </div>
+</section>
+
+<section class="page-section page-section--alt values">
+  <div class="container">
+    <span class="section-eyebrow" appScrollReveal="up">What We Stand For</span>
+    <h2 class="section-heading" appScrollReveal="up">Our coaching philosophy</h2>
+    <div class="grid grid--4">
+      <div class="card value-card" *ngFor="let value of values; let i = index" appScrollReveal="up" [revealDelay]="i * 90">
+        <span class="value-card__num">{{ (i + 1) < 10 ? '0' + (i + 1) : (i + 1) }}</span>
+        <h3>{{ value.title }}</h3>
+        <p>{{ value.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section facilities">
+  <div class="container">
+    <span class="section-eyebrow" appScrollReveal="up">Our Facilities</span>
+    <h2 class="section-heading" appScrollReveal="up">A complete training environment</h2>
+    <p class="section-sub" appScrollReveal="up">
+      Every facility is designed with one goal: helping players train the way
+      they will play.
+    </p>
+    <div class="grid grid--2">
+      <article class="card facility-card" *ngFor="let facility of facilities; let i = index" [appScrollReveal]="i % 2 === 0 ? 'left' : 'right'">
+        <img [src]="facility.image" [alt]="facility.title" loading="lazy" />
+        <div class="facility-card__body">
+          <h3>{{ facility.title }}</h3>
+          <p>{{ facility.description }}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="page-section page-section--alt timeline-section">
+  <div class="container">
+    <span class="section-eyebrow" appScrollReveal="up">Our Journey</span>
+    <h2 class="section-heading" appScrollReveal="up">Milestones along the way</h2>
+
+    <ol class="timeline">
+      <li class="timeline__item" *ngFor="let item of timeline" appScrollReveal="left">
+        <div class="timeline__year">{{ item.year }}</div>
+        <div class="timeline__content">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>

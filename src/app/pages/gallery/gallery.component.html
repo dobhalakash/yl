@@ -1,0 +1,35 @@
+<section class="page-hero">
+  <div class="container" appScrollReveal="up">
+    <span class="section-eyebrow">Gallery</span>
+    <h1>Moments from the Ground</h1>
+    <p class="section-sub section-sub--center" style="color: rgba(255,255,255,0.8);">
+      Training sessions, match days, tours and the facilities that bring it
+      all together.
+    </p>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="gallery-filters" role="tablist" aria-label="Filter gallery by category">
+      <button
+        type="button"
+        *ngFor="let category of categories"
+        class="gallery-filters__btn"
+        [class.is-active]="activeCategory() === category"
+        (click)="setCategory(category)"
+        role="tab"
+        [attr.aria-selected]="activeCategory() === category"
+      >
+        {{ category }}
+      </button>
+    </div>
+
+    <div class="gallery-grid">
+      <figure class="gallery-grid__item" *ngFor="let image of filteredImages(); let i = index" appScrollReveal="scale" [revealDelay]="(i % 6) * 70">
+        <img [src]="image.src" [alt]="image.alt" loading="lazy" />
+        <figcaption>{{ image.category }}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+<section class="page-hero">
+  <div class="container" appScrollReveal="up">
+    <span class="section-eyebrow">Training Programs</span>
+    <h1>A Program for Every Stage of Your Game</h1>
+    <p class="section-sub section-sub--center" style="color: rgba(255,255,255,0.8);">
+      From first-step fundamentals to elite performance pathways — clear
+      progression, expert coaching and real match exposure at every level.
+    </p>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="program-list">
+      <article class="program-row card" *ngFor="let program of programs; let i = index" [class.program-row--reverse]="i % 2 === 1" [appScrollReveal]="i % 2 === 1 ? 'right' : 'left'">
+        <div class="program-row__image">
+          <img [src]="program.image" [alt]="program.title" loading="lazy" />
+        </div>
+        <div class="program-row__body">
+          <div class="program-row__meta">
+            <span class="program-row__level">{{ program.level }}</span>
+            <span class="program-row__age">{{ program.ageGroup }}</span>
+          </div>
+          <h2>{{ program.title }}</h2>
+          <p>{{ program.description }}</p>
+          <ul class="program-row__features">
+            <li *ngFor="let feature of program.features">{{ feature }}</li>
+          </ul>
+          <div class="program-row__schedule">
+            <strong>Schedule:</strong> {{ program.schedule }}
+          </div>
+          <a routerLink="/contact" class="btn btn--primary">Enquire About This Program</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="page-section page-section--alt programs-cta">
+  <div class="container text-center" appScrollReveal="scale">
+    <span class="section-eyebrow">Not Sure Which Program Fits?</span>
+    <h2 class="section-heading">Book a free skill assessment</h2>
+    <p class="section-sub section-sub--center">
+      Our coaches will watch you bat, bowl and field, then recommend the
+      program that matches your current level and goals.
+    </p>
+    <a routerLink="/contact" class="btn btn--primary">Book Free Assessment</a>
+  </div>
+</section>

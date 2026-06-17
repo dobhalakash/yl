@@ -1,0 +1,180 @@
+<!-- ══════════════════════════════════════════════════
+     HERO SLIDER — exact mockup layout
+══════════════════════════════════════════════════ -->
+<section class="hero-slider" aria-label="Hero banner">
+  <!-- Slide track -->
+  <div class="hero-slider__track" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
+    <div class="hero-slide" *ngFor="let slide of slides; let i = index" [class.is-active]="i === currentSlide">
+      <!-- Background image -->
+      <img class="hero-slide__bg" [src]="slide.image" [alt]="slide.alt" />
+      <!-- Dark overlay gradient -->
+      <div class="hero-slide__overlay"></div>
+      <!-- Content -->
+      <div class="hero-slide__content container">
+        <span class="hero-slide__eyebrow">{{ slide.eyebrow }}</span>
+        <h1 class="hero-slide__title" [innerHTML]="slide.title"></h1>
+        <p class="hero-slide__sub">{{ slide.sub }}</p>
+        <div class="hero-slide__actions">
+          <a routerLink="/contact" class="hero-btn hero-btn--gold">
+            Join Now
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+          </a>
+          <a routerLink="/programs" class="hero-btn hero-btn--outline">
+            Explore Programs
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prev / Next arrows -->
+  <button class="hero-slider__arrow hero-slider__arrow--prev" (click)="prevSlide()" aria-label="Previous slide">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+  </button>
+  <button class="hero-slider__arrow hero-slider__arrow--next" (click)="nextSlide()" aria-label="Next slide">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+  </button>
+
+  <!-- Dot indicators -->
+  <div class="hero-slider__dots" role="tablist" aria-label="Slide indicators">
+    <button
+      *ngFor="let slide of slides; let i = index"
+      class="hero-slider__dot"
+      [class.is-active]="i === currentSlide"
+      (click)="goToSlide(i)"
+      [attr.aria-label]="'Go to slide ' + (i + 1)"
+      role="tab"
+      [attr.aria-selected]="i === currentSlide"
+    ></button>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     FEATURE STRIP
+══════════════════════════════════════════════════ -->
+<section class="feature-strip" aria-label="Academy features">
+  <div class="feature-strip__grid">
+    <div class="feature-item" *ngFor="let f of features; let i = index">
+      <div class="feature-item__icon" [innerHTML]="f.svgIcon" aria-hidden="true"></div>
+      <div class="feature-item__text">
+        <strong>{{ f.title }}</strong>
+        <span>{{ f.sub }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     PROGRAMS + SIDEBAR
+══════════════════════════════════════════════════ -->
+<section class="home-body page-section">
+  <div class="home-body__layout container">
+
+    <!-- Programs grid -->
+    <div class="home-main">
+      <div class="section-label-bar">
+        <span class="section-label-bar__text">Our Programs</span>
+        <span class="section-label-bar__line"></span>
+      </div>
+
+      <div class="programs-grid">
+        <article class="prog-card" *ngFor="let p of programs; let i = index" appScrollReveal="up" [revealDelay]="i * 80">
+          <div class="prog-card__img">
+            <img [src]="p.image" [alt]="p.title" loading="lazy" />
+            <div class="prog-card__img-icon" aria-hidden="true" [innerHTML]="p.svgIcon"></div>
+          </div>
+          <div class="prog-card__body">
+            <h3 class="prog-card__title">{{ p.title }}</h3>
+            <p class="prog-card__ages">{{ p.ages }}</p>
+            <p class="prog-card__desc">{{ p.description }}</p>
+            <a routerLink="/programs" class="prog-card__link">
+              Read More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Gallery strip -->
+      <div class="gallery-strip" appScrollReveal="up">
+        <div class="section-label-bar">
+          <span class="section-label-bar__text">Glimpses of YL Academy</span>
+          <span class="section-label-bar__line"></span>
+        </div>
+        <div class="gallery-strip__grid">
+          <div class="gallery-strip__item" *ngFor="let g of gallery">
+            <img [src]="g.src" [alt]="g.alt" loading="lazy" />
+          </div>
+          <button class="gallery-strip__more" routerLink="/gallery" aria-label="See more gallery images">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="home-sidebar">
+      <!-- Academy Highlights -->
+      <div class="sidebar-box sidebar-box--dark" appScrollReveal="right">
+        <h3 class="sidebar-box__title">Academy Highlights</h3>
+        <div class="sidebar-highlights">
+          <div class="highlight-row" *ngFor="let s of stats">
+            <div class="highlight-row__icon" [innerHTML]="s.svgIcon" aria-hidden="true"></div>
+            <div class="highlight-row__body">
+              <strong>{{ s.value }}</strong>
+              <span>{{ s.label }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- What Parents & Players Say -->
+      <div class="sidebar-box sidebar-box--light" appScrollReveal="right" [revealDelay]="100">
+        <h3 class="sidebar-box__title sidebar-box__title--dark">What Parents &amp; Players Say</h3>
+        <div class="sidebar-testimonial">
+          <div class="sidebar-testimonial__quote-icon" aria-hidden="true">
+            <svg width="32" height="26" viewBox="0 0 32 26" fill="none">
+              <path d="M0 26V16C0 7.178 4.444 1.778 13.333 0L15 2.444C10.889 3.556 8.444 5.778 8 9.111H14V26H0ZM18 26V16C18 7.178 22.444 1.778 31.333 0L33 2.444C28.889 3.556 26.444 5.778 26 9.111H32V26H18Z" fill="#f5a623" fill-opacity="0.35"/>
+            </svg>
+          </div>
+          <p class="sidebar-testimonial__text">{{ featuredTestimonial.quote }}</p>
+          <div class="sidebar-testimonial__author">
+            <img [src]="featuredTestimonial.avatar" [alt]="featuredTestimonial.name" />
+            <div>
+              <strong>{{ featuredTestimonial.name }}</strong>
+              <span>{{ featuredTestimonial.role }}</span>
+            </div>
+            <div class="sidebar-testimonial__nav" aria-label="Testimonial navigation">
+              <button (click)="prevTestimonial()" aria-label="Previous testimonial">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+              </button>
+              <button (click)="nextTestimonial()" aria-label="Next testimonial">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     BOTTOM CTA STRIP
+══════════════════════════════════════════════════ -->
+<div class="cta-strip">
+  <div class="cta-strip__inner container">
+    <div class="cta-strip__icon" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+    </div>
+    <div class="cta-strip__text">
+      <strong>Ready to Start Your Cricket Journey?</strong>
+      <span>Join YL Cricket Academy today and take the first step towards a successful cricket career.</span>
+    </div>
+    <a routerLink="/contact" class="cta-strip__btn">
+      Enquire Now
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+    </a>
+  </div>
+</div>
