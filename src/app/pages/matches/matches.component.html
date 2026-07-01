@@ -10,35 +10,7 @@
 </section>
 
 <!-- ============ FIXTURES ============ -->
-<section class="page-section fixtures">
-  <div class="container" appScrollReveal="up">
-    <span class="section-eyebrow">Fixtures &amp; Results</span>
-    <h2 class="section-heading">Upcoming matches and recent results</h2>
 
-    <div class="fixtures__table card">
-      <div class="fixtures__row fixtures__row--head">
-        <span>Date</span>
-        <span>Competition</span>
-        <span>Match</span>
-        <span>Venue</span>
-        <span>Status</span>
-      </div>
-      <div class="fixtures__row" *ngFor="let fixture of fixtures; let i = index" appScrollReveal="left" [revealDelay]="i * 60">
-        <span class="fixtures__date">{{ fixture.date }}</span>
-        <span>{{ fixture.competition }}</span>
-        <span>{{ fixture.opponent }}</span>
-        <span class="fixtures__venue">{{ fixture.venue }}</span>
-        <span
-          class="fixtures__status"
-          [class.fixtures__status--upcoming]="fixture.status === 'Upcoming'"
-          [class.fixtures__status--result]="fixture.status === 'Result'"
-        >
-          {{ fixture.status === 'Result' ? fixture.result : 'Upcoming' }}
-        </span>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============ TOURS ============ -->
 <section class="page-section page-section--alt tours">

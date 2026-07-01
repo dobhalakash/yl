@@ -35,7 +35,7 @@ export class ProgramsComponent {
         'Focus on grip, stance and throwing basics',
         'Monthly fun-match days',
       ],
-      image: 'https://picsum.photos/seed/yl-prog-junior/640/420',
+      image: '/Junior Foundation Program.png',
     },
     {
       title: 'Youth Development Program',
@@ -50,7 +50,7 @@ export class ProgramsComponent {
         'Weekend net matches',
         'Selection trials for district-level teams',
       ],
-      image: 'https://picsum.photos/seed/yl-prog-youth/640/420',
+      image: '/Youth Development Program.png',
     },
     {
       title: 'Elite Performance Squad',
@@ -65,7 +65,7 @@ export class ProgramsComponent {
         'Strength & conditioning with sports physiotherapist',
         'Priority selection for tours and tournaments',
       ],
-      image: 'https://picsum.photos/seed/yl-prog-elite/640/420',
+      image: '/Elite Performance Squad.png',
     },
     {
       title: 'Fast Bowling Clinic',
@@ -80,7 +80,7 @@ export class ProgramsComponent {
         'Variation bowling (seam, swing, cutters)',
         'Strength program for fast bowlers',
       ],
-      image: 'https://picsum.photos/seed/yl-prog-bowling-clinic/640/420',
+      image: '/Fast Bowling Clinic.png',
     },
     {
       title: 'Batting Masterclass',
@@ -95,7 +95,7 @@ export class ProgramsComponent {
         'One-on-one video breakdown',
         'Mental skills & shot-selection coaching',
       ],
-      image: 'https://picsum.photos/seed/yl-prog-batting/640/420',
+      image: '/Batting Masterclass.png',
     },
     {
       title: 'Wicketkeeping Specialist Camp',
@@ -110,7 +110,7 @@ export class ProgramsComponent {
         'Fitness for wicketkeepers',
         'Match-simulation keeping drills',
       ],
-      image: 'https://picsum.photos/seed/yl-prog-keeping/640/420',
+      image: '/Wicketkeeping Specialist Camp.png',
     },
   ];
 }

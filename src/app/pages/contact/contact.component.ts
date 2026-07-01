@@ -67,9 +67,18 @@ export class ContactComponent {
       return;
     }
 
-    // NOTE: Wire this up to your backend / email service as needed.
-    console.log('Enquiry submitted:', this.form.value);
+    const val = this.form.value as { name: string; email: string; phone: string; program: string; message?: string };
 
+    // Build mailto link to send enquiry to the academy inbox
+    const to = 'ylcricketacademy@gmail.com';
+    const subject = `YL Cricket Academy Enquiry from ${val.name || 'Website Visitor'}`;
+    const body = `Name: ${val.name || ''}\nEmail: ${val.email || ''}\nPhone: ${val.phone || ''}\nProgram: ${val.program || ''}\n\nMessage:\n${val.message || ''}`;
+    const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Open the user's email client with prefilled mail — users can send directly.
+    window.location.href = mailto;
+
+    // Mark as submitted and reset the form (retain default program)
     this.submitted.set(true);
     this.form.reset({ program: this.programOptions[0] });
   }

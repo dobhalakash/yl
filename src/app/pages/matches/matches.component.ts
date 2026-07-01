@@ -31,10 +31,10 @@ interface TourItem {
 export class MatchesComponent {
   fixtures: FixtureItem[] = [
     {
-      date: '21 Jun 2026',
+      date: 'Upcoming',
       competition: 'YL Inter-Academy Cup',
       opponent: 'vs Phoenix Cricket Club',
-      venue: 'YL Home Ground, Mumbai',
+      venue: 'Rampur Ground, chhatrapati sambhajinagar',
       status: 'Upcoming',
     },
     {
@@ -80,29 +80,29 @@ export class MatchesComponent {
   tours: TourItem[] = [
     {
       title: 'Winter Tour 2026',
-      destination: 'Ahmedabad, Gujarat',
-      dates: '15 - 21 Dec 2026',
+      destination: 'Rampur, Chhatrapati Sambhajinagar',
+      dates: 'upcoming',
       description:
         'A week-long tour featuring five matches against academies in Ahmedabad, plus a visit to a first-class stadium for a behind-the-scenes session.',
-      image: 'https://picsum.photos/seed/yl-tour-ahmedabad/600/400',
+      image: '/Turf Ground & Outfield.png',
       highlights: ['5 competitive matches', 'Stadium tour & nets session', 'Team bonding activities', 'Open to U-14, U-16 & U-19'],
     },
     {
-      title: 'Coastal Cup Tour',
-      destination: 'Goa',
-      dates: '10 - 14 Oct 2026',
+      title: 'Practice MAtch',
+      destination: 'MSM Ground, Chhatrapati Sambhajinagar',
+      dates: '10 - 14 Oct',
       description:
         'A short tour combining three matches against coastal academies with recovery sessions on the beach — fitness and fun combined.',
-      image: 'https://picsum.photos/seed/yl-tour-goa/600/400',
+      image: '/Junior Program Ages 6 – 12 Years.png',
       highlights: ['3 matches in 4 days', 'Beach recovery sessions', 'Open to U-16 & Elite Squad', 'Includes team kit upgrade'],
     },
     {
       title: 'Summer Camp & Tour',
       destination: 'Pune, Maharashtra',
-      dates: '02 - 06 May 2027',
+      dates: 'Upcoming',
       description:
         'Our flagship summer program: four days of intensive training camps in Pune followed by two exhibition matches against local academies.',
-      image: 'https://picsum.photos/seed/yl-tour-pune/600/400',
+      image: '/Performance Program Ages 17 – 21 Years.png',
       highlights: ['Intensive training camp', '2 exhibition matches', 'Guest sessions with first-class players', 'Open to all age groups'],
     },
   ];

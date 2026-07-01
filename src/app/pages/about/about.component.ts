@@ -79,22 +79,22 @@ export class AboutComponent {
     {
       title: 'Turf Ground & Outfield',
       description: 'Full-size turf ground with proper boundary markings for match simulation drills.',
-      image: 'https://picsum.photos/seed/yl-facility-turf/480/340',
+      image: '/Turf Ground & Outfield.png',
     },
     {
       title: 'Practice Nets',
       description: '8 dedicated nets — turf, matting and synthetic — for batting, bowling and fielding drills.',
-      image: 'https://picsum.photos/seed/yl-facility-nets/480/340',
+      image: '/Practice Nets.png',
     },
     {
       title: 'Bowling Machine & Analysis Lab',
       description: 'Bowling machines and high-speed cameras for biomechanics and shot analysis.',
-      image: 'https://picsum.photos/seed/yl-facility-lab/480/340',
+      image: '/Bowling Machine & Analysis Lab.png',
     },
     {
       title: 'Fitness & Conditioning Zone',
       description: 'Strength, agility and injury-prevention training tailored to growing athletes.',
-      image: 'https://picsum.photos/seed/yl-facility-fitness/480/340',
+      image: '/Fitness & Conditioning Zone.png',
     },
   ];
 }

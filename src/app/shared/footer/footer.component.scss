@@ -49,27 +49,10 @@
   margin-bottom: 16px;
 }
 
-.footer__logo-mark {
-  width: 48px;
-  height: 48px;
-  background: rgba(245,166,35,.12);
-  border: 2px solid var(--color-gold);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1px;
-  flex-shrink: 0;
-
-  span {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    color: var(--color-gold);
-    line-height: 1;
-  }
-
-  svg { flex-shrink: 0; }
+.footer__logo-image {
+  max-width: 120px;
+  height: auto;
+  display: block;
 }
 
 .footer__logo-name {
@@ -156,4 +139,7 @@
 @media (max-width: 640px) {
   .footer__grid { grid-template-columns: 1fr; padding: 40px 24px 28px; }
   .footer__bottom-inner { flex-direction: column; gap: 8px; text-align: center; }
+  .footer__logo { flex-direction: column; align-items: center; text-align: center; }
+  .footer__logo-name { align-items: center; }
+  .footer__social { justify-content: center; }
 }
